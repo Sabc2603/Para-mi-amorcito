@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100 Razones por las que se que te amo</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #ff758c, #ff7eb3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #ffffff;
+            color: #ff6f9c;
+            font-size: 1.2rem;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        button:hover {
+            background-color: #ff6f9c;
+            color: #fff;
+            transform: scale(1.05);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Introducción -->
+        <div id="intro">
+            <h1>Queria hacer algo no tan elaborado perooo jejej no queria ser un mediocre con lo que te iba a dar.</h1>
+            <p>Me sacaria el corazón solo para dartelo en tus manos y hagas lo que quieras, solo es algo chiquito pero con muchisimo amor para ti.</p>
+            <button onclick="start()">Comenzar</button>
+        </div>
+
+        <!-- Razones -->
+        <div id="reasonsSection" class="hidden">
+            <h1 id="reasonTitle">Razón #1</h1>
+            <p id="reason">Te amo por que desde que te conoci has mejorado cada aspecto en mi aunque no te lo diga.</p>
+            <button onclick="nextReason()">Siguele jejeje</button>
+        </div>
+
+        <!-- Mensaje Final -->
+        <div id="finalSection" class="hidden">
+            <h1>Te amo...</h1>
+            <p>Se que solo cumplimos un solo mes pero quiero que sepas que es el mejor mes que he tenido en toda mi vida, y lo considerare siempre como el inicio de toda mi vida. ❤️</p>
+        </div>
+    </div>
+    <script>
+        const reasons = [
+            "Te amo por que desde que te conoci has mejorado cada aspecto en mi aunque no te lo diga.",
+            "Te amo por la forma que me haces sentir amado, siempre lo has hecho tan bien que nunca he dudado del amor que me tienes",
+            "Te amo por quien eres, jamas cambies ni por mi ni por nadie, eres increible tal cual eres.",
+            "Te amo por que entre mas te escucho reir mas me enamoro.",
+            "Te amo por que haces que deje de tener miedo y me siga arriesgando.",
+            "Te amo por que haces que quiera vivir y que no me rinda tan facil.",
+            "Te amo por que tu eres mi motivo para seguir esforzandome, por que no solo soy yo ahora, ni sere, siempre habra un nosotros.",
+            "Te amo tanto que no estoy dispuesto a dejarte ir, por que quiero ser yo quien este para ti en todo momento y te cuide.",
+            "Te amo demasiado que la misma palabra ya no es suficiente para poder expresarte todo lo que siento",
+            "Te amo por que aunque arriesgue todo, jamas senti que perdi, al contrario gane a la mujer de mi vida y a la dueña de mi corazón",
+            "Te amo por amarme incluso cuando yo no me amo",
+            "Te amo por serguirme en cada tonteria que se me ocurre,",
+            "Te amo por que se que haces todo para tratar de entenderme",
+            "Te amo por la forma en que me cuidas y estas tan al pendiente de mi",
+            "Te amo por que se que estoy dispuesto a dar mi vida por ti",
+            "Te amo por que siempre buscas la manera de arreglar las cosas por mas dificil que sea",
+            "Te amo por que confio en ti",
+            "Te amo por que se que puedo ser yo mismo contigo y no sentirme juzgado",
+            "Te amo no importa cuantas peleas",
+            "Te amo por que contigo no tengo miedo, ni quiero huir como siempre he hecho",
+            "Te amo por todos los sentimientos que generas en mi son cosas que jamas habia sentido tan genuinas",
+            "Te amo por que eres una gran chica y que admiro mucho",
+            "Te amo por que me inspiras a ser mejor",
+            "Te amo por que siempre reconoces mi valor como persona",
+            "Te amo por lo preciosa que eres, no solo fisicamente si no como persona",
+            "Te amo por ese corazoncito tan hermoso que tienes y que yo siempre cuidare",
+            "Te amo por lo enojona que eres",
+            "Te amo por lo celosa y lo berrinchosa",
+            "Te amo por que se que aunque me lastimes o me destruyas se que te seguire viendo con ojos de amor",
+            "Te amo por ese sentido de humor tan roto igual que el mio",
+            "Te amo por haces que quiera ver un futuro mas allá, juntos y yo que pense que no iba a estar tanto",
+            "¿Sabes por que se que te amo? por que siempre pienso en como hacerte sentir amada y que no te falte nada a mi lado nunca, que siempre sientas que te amo y haria esto una y mil veces más",
+            "Te amo por que eres la mujer que una vez soñé, se que eres la persona que una vez tanto pedí",
+            "Te amo por que se que no me equivoque al escogerte y aunque no salgan las cosas nunca jamas me arrepentire de haberte escogido como la mijer de mi vida y la dueña de mi corazón",
+            "Te amo por que se que te podria escribirte 1000 razones mas y mas que eso",
+            "Te amo por que eres la unica persona que me importa, todo lo que te pase y sientas siempre sera importante para mi",
+            "Te amo por que eres una maravillosa novia y la mejor",
+            "Te amo por esos ojitos hermosos que tienes, sin duda no dejaria de mirarlos nunca",
+            "Te amo por esa carita tan preciosa que tienes, dijiste que eras seria, pero si te vieres como te veo yo no parece ser muy asi",
+            "Te amo por que no solo me enamore de lo que vi, si no por lo que sentí",
+            "Te amo por que no me importa verme tan obsesionado y tan atento contigo",
+            "Te amo por que sacas la mejor parte de mi",
+            "Te amo por que podria estarte escribiendote cartas por horas y decirte cuanto te amo y cuan bien me haces sentir, tus cualidades, caracterizticas y todo de ti",
+            "Te amo tanto por lo cual te voy a dedicar todo de mi, hasta mi vida",
+            "Te amo por que enamorarme fue lo mas bonito que pude sentir y hacer fue lo mejor que pude hacer",
+            "Te amo por esa conexión tan bonita que tenemos",
+            "Te amo por todo el bullying que me haces jkdfjd de alguna forma se siente lindo amo que me molestes tanto como lo hago contigo",
+            "Te amo por que se que si el día de mañana decides irte, dejaria que te fueras por que si no te sientes feliz a mi lado, no te hare quedarte y ser infeliz",
+            "Te amo por que se que mi felicidad eres tu, mientras tu estes bien no hay nada mas que me importe",
+            "Te amo por que estoy dispuesto a ser y hacer lo que fuera por ti",
+            "Te amo por que se que si fuera un artista, tu serias la musa de todas mis obras y aunque no lo soy, eres mi gran motivo e inspiración",
+            "Te amo por que aunqube no sea lo mejor aun asi me escoges siempre",
+            "Te amo por la mujer que eres, por tu valor",
+            "Te amo por que todo lo que hago siempre tu estas en mis pensamientos",
+            "Te amo por que se que aunque sea unrarito tu nunca me vas a ver asi",
+            "Te amo por que aunque aveces no te sientas del todo bien sigues aqui, haciendome feliz",
+            "Te amo por que se que te daria mi corazón sin ninguna condición para que puedas hacer lo que quieras",
+            "Te amo tanto por lo cual yo me comprometo a hacerte la mujer mas amada de este mundo y mas feliz",
+            "Te amo por esa voz tan preciosa que tienes, sin duda podria escucharte las 24/7, serias mi podcast favorito y diario",
+            "Te amo por que significas todo para mi, que mis palabras se sienten tan pocas para demostrarte todo lo que siento por ti",
+            "Te amo por que eres todas las canciones de amor que escucho, son como si todas fueran escritas para ti",
+            "Te amo por que eres mi mayor tesoro y aunque no soy un pirata te cuidaria con mi vida",
+            "Te amo por que eres el amor de mi vida, en esta y en todas las que exista",
+            "Te amo por todo me nace contigo, lo que tu me pidas estaria dispuesto a hacerlo",
+            "Te amo por que aunque sea como un nene pequeño siempre intentas comprenderme y no dejarme asi",
+            "Te amo por que aunque tenga un dia de mierda siempre llegas tu a sacarme una sonrisa aunque no te lo diga",
+            "Te amo por esos lindos sentimientos que tienes y siempre has desmostrado tener, incluso antes de salir",
+            "Te amo por que eres de mis mejores decisiones",
+            "Te amo por que estoy dispuesto a demostrarte que eres la mujer que mas amo y adoro toda mi vida no solo ahora si no hasta que estemos juntos",
+            "Te amo por lo divertida que eres, auqnue digas que eres aburrida, pero eso no es asi",
+            "Te amo por que se auq eaunque quedemos en silencio, nunca se sentirá incomodo",
+            "Te amo por que siempre que estoy cotnigo haces que todo se sienta tan bien y tan tranquilo",
+            "Te amo por la paz que le das a mi corazón",
+            "Te amo y podria seguirte diciendote que te amo un millon de veces mas",
+            "Te amo por la forma en que siempre me escichas y tratas de comprender lo que te digo",
+            "Te amo por que no dejas que las discusiones se vuelvan fuertes ni pesadas",
+            "Te amo por que no te has rendido conmigo",
+            "Te amo por que se que no te iras a la primera que las cosas se pongan dificiles",
+            "Te amo por que no dudas de lo que siento por ti y eso me hace sentir bien y tranquilo",
+            "Te amo por que eres a quien deseo amar con toda mi existencia y toda mi vida",
+            "Te amo por que quiero compartir toda mi vida junto a ti",
+            "Te amo por que no te enojas cuando me pongo dificil y esperas a que me calme o ayudas a que razone mejor las cosas",
+            "Te amo por que no me has dejado solo desde que te conoci",
+            "Te amo por que jamas me arrepentire de hacerte las cosas, son con mucho amor para ti",
+            "Te amo por mantener siempre en mi una sonrisa como un niño peuqueño",
+            "Te amo por que siempre me perdonas aunque haga las cosas mal, solo quiero aprender a amarte como mereces",
+            "Te amo por que todo tomo un sentido desde que estas conmigo",
+            "Te amo por la forma en que me regañas, me encanta saber como me cuidas por eso jamas me enojo o me siento cuando lo haces",
+            "Te amo por que amas a este sentido",
+            "Te amo por esa forma tranquila de resolver las cosas aunque aveces te saque la paciencia",
+            "Te amo por que has sido paciente conmigo y has aprendido a que las cosas que digo o solo me dejo llevar y no lo digo enserio, todavia tengo que mejorar ese aspecto pero quiero que sepas que trabajre en ello",
+            "Te amo por que cada parte de ti es un mundo nuevo para mi y es tan bonito poder conocer cada parte que te conforma",
+            "Te amo por nque eres la mujer que me complementa",
+            "Te amo por lo chismosa que eres, pero mejor asi compartimos lo que pensamos jejeje",
+            "Te amo por que prestas atención a los minimos detalles auqnue no digas nada siempre estas en todas",
+            "Te amo por que aunque me cueste dejar el orgullo, siempre esperas aque se me pase y lo quiera hablar",
+            "Te amo por como demuestras todo lo que sientes por mi, me siento tan afortunado de tenerte",
+            "Te amo por que siempre aprendo cosas nuevas contigo",
+            "Te amo por cada momento que pasamos juntos",
+            "Te amo por que siempre te puedo sacar de quicio jejeje me gusta molestarte",
+            "Te amo por que me enseñaste a que puedo amar sin limitarme",
+            "Te amo por que me tienes haciendo cosas que jamas me imaginaba haciendo",
+            "Te amo por solo ser tu",
+            "Amo tu existencia y la agradezco tanto",
+            "Te amo por haberte cruzado en mi camino y no irte nunca",
+            "Te amo por que se que eres la unica persona que jamas me arrepentire de conocer",
+            "Te amo tal y como eres, sin quitarte o ponerte algo, no quiero que cambies tu forma de ser jamas yo siempre estare para que sigas manteniendo tu escencia, y apoyarte en los aspectos que quisieras mejorar, siempre estare alli contigo incluso si no quieres que este, igual estare",
+            "Te amo mi princesa hermosa",
+        ];
+        let index = 0;
+
+        function start() {
+            document.getElementById("intro").classList.add("hidden");
+            document.getElementById("reasonsSection").classList.remove("hidden");
+        }
+
+        function nextReason() {
+            const reasonTitle = document.getElementById("reasonTitle");
+            const reasonElement = document.getElementById("reason");
+
+            index++;
+            if (index < reasons.length) {
+                reasonTitle.textContent = `Razón #${index + 1}`;
+                reasonElement.textContent = reasons[index];
+            } else {
+                document.getElementById("reasonsSection").classList.add("hidden");
+                document.getElementById("finalSection").classList.remove("hidden");
+            }
+        }
+    </script>
+</body>
+</html>
